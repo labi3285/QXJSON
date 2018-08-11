@@ -13,37 +13,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var json = QXJSON([
-            "a": 12,
-            "b": nil
-            ])
+        do {
+            var json = QXJSON([
+                "a": "hello",
+                "b": "是",
+                "c": [0, 1, 2]
+                ])
+            print(json["a"].stringValue)
+            print(json["b"].boolValue)
+            print(json["c"][1].intValue)
+            print(json.jsonString ?? "null")
+        }
         
-//        json = QXJSON(1)
+        do {
+            var json = QXJSON()
+            json.jsonString = "{\"a\": \"hello\"}"
+            print(json)
+        }
         
-//        print("-")
-//        print(json.jsonString ?? "")
-//        print("-")
-//        
-        let s = json.jsonString ?? ""
-        print(s)
+        do {
+            var json = QXJSON([])
+            json[0] = 0
+            json[1] = 1
+            json[2] = ["a": "hello"]
+            print(json)
+        }
         
-        var j = QXJSON()
-        j.jsonString = s
         
-        print(j)
-
-//        let arr = [1, 2, 3]
-//        var json = QXJSON(arr)
-//        json[1] = QXJSON(13)
-//        json[2] = [
-//            "name": "销毁",
-//            "age": json
-//        ]
-//
-//
-//        print(json)
-//
-//        print(json[2]["name"].stringValue)
     }
 
 }

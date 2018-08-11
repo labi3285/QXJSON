@@ -9,14 +9,6 @@ import Foundation
 
 public struct QXJSON: CustomStringConvertible {
     
-    public init(jsonData: Data) {
-        if let obj = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) {
-            self.metaData = obj
-        } else {
-            self.metaData = nil
-        }
-    }
-    
     public init(_ any: Any?) {
         self.metaData = _makeupMetaData(any)
     }
