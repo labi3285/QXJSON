@@ -5,7 +5,7 @@
 //  Copyright © 2018年 labi3285. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public struct QXJSON: CustomStringConvertible {
     
@@ -322,7 +322,7 @@ extension QXJSON {
             return nil
         }
     }
-    
+
     public var bool: Bool? {
         set {
             metaData = newValue
@@ -365,6 +365,34 @@ extension QXJSON {
             return nil
         }
     }
+    
+    public var array: [Any?]? {
+        set {
+            metaData = newValue
+        }
+        get {
+            if let metaData = metaData {
+                if let arr = metaData as? [Any?] {
+                    return arr
+                }
+            }
+            return nil
+        }
+    }
+    
+    public var dictionary: [AnyHashable: Any?]? {
+        set {
+            metaData = newValue
+        }
+        get {
+            if let metaData = metaData {
+                if let dic = metaData as? [AnyHashable: Any?] {
+                    return dic
+                }
+            }
+            return nil
+        }
+    }
 
     public var uintValue: UInt      { return uint ?? 0 }
     public var uint8Value: UInt8    { return uint8 ?? 0 }
@@ -383,6 +411,10 @@ extension QXJSON {
     public var boolValue: Bool  { return bool ?? false }
 
     public var stringValue: String  { return string ?? "" }
+    
+    public var arrayValue: [Any?]   { return array ?? [] }
+    public var dictionaryValue: [AnyHashable: Any?]
+                                    { return dictionary ?? [:] }
 
 }
 

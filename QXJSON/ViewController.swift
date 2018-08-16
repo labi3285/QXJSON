@@ -21,24 +21,24 @@ class ViewController: UIViewController {
                 ])
             print(json["a"].stringValue)
             print(json["b"].boolValue)
+            print(json["c"].arrayValue)
             print(json["c"][1].intValue)
             print(json.jsonString ?? "null")
         }
-        
+
         do {
             var json = QXJSON()
             json.jsonString = "{\"a\": \"hello\"}"
             print(json)
         }
-        
+
         do {
             var json = QXJSON([])
-            json[0] = 0
-            json[1] = 1
+            json[0].int = 0
+            json[1].int = 1
             json[2] = ["a": "hello"]
             print(json)
         }
-        
         
     }
 

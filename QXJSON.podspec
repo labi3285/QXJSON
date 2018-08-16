@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "QXJSON"
-s.version      = "0.0.1"
+s.version      = "0.1.0"
 s.summary      = "A swift JSON handler inspired by SwiftyJSON."
 s.description  = <<-DESC
 Just treat it as a simple version of SwiftyJSON. which is more intelligent in type converts such as Bool/Int/String/JSON etc.

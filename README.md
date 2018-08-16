@@ -10,6 +10,7 @@ var json = QXJSON([
 ])
 print(json["a"].stringValue)
 print(json["b"].boolValue)
+print(json["c"].arrayValue)
 print(json["c"][1].intValue)
 print(json.jsonString ?? "null")
 ```
