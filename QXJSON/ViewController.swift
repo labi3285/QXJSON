@@ -24,6 +24,7 @@ class ViewController: UIViewController {
             print(json["c"].arrayValue)
             print(json["c"][1].intValue)
             print(json.jsonString ?? "null")
+            print(json.jsonList ?? [])
         }
 
         do {

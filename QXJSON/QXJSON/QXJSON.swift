@@ -107,6 +107,22 @@ extension QXJSON {
 
 extension QXJSON {
     
+    public var jsonList: [QXJSON]? {
+        set {
+            metaData = _makeupMetaData(newValue)
+        }
+        get {
+            if let metaData = metaData {
+                if let arr = metaData as? [Any?] {
+                    return arr.map({ QXJSON($0) })
+                } else if let dic = metaData as? [AnyHashable: Any] {
+                    return dic.map({ QXJSON(($0, $1)) })
+                }
+            }
+            return nil
+        }
+    }
+    
     public var uint: UInt? {
         set {
             metaData = newValue
@@ -393,6 +409,9 @@ extension QXJSON {
             return nil
         }
     }
+
+    public var jsonListValue: [QXJSON]
+                                    { return jsonList ?? [] }
 
     public var uintValue: UInt      { return uint ?? 0 }
     public var uint8Value: UInt8    { return uint8 ?? 0 }
